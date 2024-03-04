@@ -1,0 +1,90 @@
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { UsuarioService } from 'src/app/servicios/usuario.service';
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
+})
+export class LoginComponent {
+  banderaError: boolean = false;
+  formLogin: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private usuarioServise: UsuarioService,
+    private cookiesService: CookieService
+  ) {
+    this.formLogin = this.formBuilder.group({
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email,
+          Validators.minLength(1),
+          Validators.maxLength(256),
+        ],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(100),
+        ],
+      ],
+    });
+  }
+
+  ngOnInit(): void {}
+
+  get email() {
+    return this.formLogin.get('email');
+  }
+  get password() {
+    return this.formLogin.get('password');
+  }
+
+  public login() {
+    //seteamos la bandera de error como false
+    this.banderaError = false;
+    const passwordEntry = this.formLogin.value['password'];
+    const correoEntry = this.formLogin.value['email'];
+
+    const usuario = {
+      email: correoEntry,
+      password: passwordEntry,
+    };
+    this.usuarioServise.login(usuario).subscribe((respuesta: any) => {
+      console.log(respuesta);
+      //si no se devuelve null entonces decidimos a que menu enviar al usuario
+      if (respuesta) {
+        //guardamos la info del cliente
+        this.cookiesService.set('email', correoEntry);
+        this.cookiesService.set('user', respuesta.usuarioEncontrado.nombre_usuario);
+        switch (respuesta.usuarioEncontrado.rol) {
+          case 'administrador': {
+            //statements;
+            break;
+          }
+          case 'vendedor': {
+            this.router.navigate(['/menu_vendedor']);
+            break;
+          }
+          case 'comprador': {
+            //statements;
+            break;
+          }
+          default: {
+            break;
+          }
+        }
+      } else {
+        this.banderaError = true; //si el login fallo entonces activamos el error
+      }
+    });
+  }
+}

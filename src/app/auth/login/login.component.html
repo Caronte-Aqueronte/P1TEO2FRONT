@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="login">
+        <!-- Formulario reactivo -->
+        <form [formGroup]="formLogin" (submit)="login()">
+            <div class="form-section-container">
+                <h3>BazarTIKAL Login</h3>
+                <div class="group">
+                    <input required="" type="text" class="input" formControlName="email" />
+                    <label>Correo electrónico</label>
+                    <ng-container *ngIf="
+                email?.errors &&
+                (email?.touched || email?.dirty)
+              ">
+                        <small *ngIf="email?.errors?.['required']" class="alerta">El correo electrónico es
+                            requerido.
+                        </small>
+                        <small *ngIf="email?.errors?.['email']" class="alerta">Correo electrónico invalido.
+                        </small>
+                        <small *ngIf="email?.hasError('maxlength')" class="alerta">El correo electrónico
+                            debe tener como máximo 256 caracteres.
+                        </small>
+                        <small *ngIf="email?.hasError('minLength')" class="alerta">El correo electrónico
+                            debe tener como mínimo 1 carácter.
+                        </small>
+                    </ng-container>
+                </div>
+                <div class="group">
+                    <input required="" type="password" class="input" formControlName="password" />
+                    <label>Contraseña</label>
+                    <ng-container *ngIf="password?.errors && (password?.touched || password?.dirty)">
+                        <small *ngIf="password?.errors?.['required']" class="alerta">La contraseña es requerida.
+                        </small>
+                        <small *ngIf="password?.hasError('maxlength')" class="alerta">La contraseña debe tener como
+                            máximo 100 caracteres.
+                        </small>
+                        <small *ngIf="password?.hasError('minLength')" class="alerta">La contraseña debe tener como
+                            mínimo 1 carácter.
+                        </small>
+                    </ng-container>
+                </div>
+                <!-- Boton de ingresar -->
+                <button [disabled]="formLogin.invalid">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span> Login
+                </button>
+
+                <a [routerLink]="['/crear-usuario']">¿No tienes una cuenta?</a>
+
+                <ng-container *ngIf="banderaError">
+                    <small *ngIf="banderaError" class="alerta">Credenciales incorrectas
+                    </small>
+                </ng-container>
+            </div>
+        </form>
+    </div>
+</div>
