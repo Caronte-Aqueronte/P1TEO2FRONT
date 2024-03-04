@@ -65,6 +65,7 @@ export class LoginComponent {
         //guardamos la info del cliente
         this.cookiesService.set('email', correoEntry);
         this.cookiesService.set('user', respuesta.usuarioEncontrado.nombre_usuario);
+        this.cookiesService.set('id', respuesta.usuarioEncontrado.id);
         switch (respuesta.usuarioEncontrado.rol) {
           case 'administrador': {
             //statements;

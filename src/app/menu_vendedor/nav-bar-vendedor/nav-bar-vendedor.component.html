@@ -16,26 +16,32 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item box">
-                        <a class="nav-link active" aria-current="page" href="#">
+                        <a [routerLink]="['/crear-usuario']" class="nav-link active" aria-current="page">
                             <img src="../../../assets/product-management.png">
                             Tus productos
                         </a>
                     </li>
                     <li class="nav-item box">
-                        <a class="nav-link active" aria-current="page" href="#">
-                            <img src="../../../assets/product-management.png">
+                        <a [routerLink]="['crear_producto']" class="nav-link active" aria-current="page">
+                            <img src="../../../assets/new-product.png">
                             Nuevo producto
                         </a>
                     </li>
                     <li class="nav-item box">
-                        <a class="nav-link active" aria-current="page" href="#">
-                            <img src="../../../assets/product-management.png">
+                        <a [routerLink]="['tags']" class="nav-link active" aria-current="page">
+                            <img src="../../../assets/client.png">
+                            Tags
+                        </a>
+                    </li>
+                    <li class="nav-item box">
+                        <a  [routerLink]="['/crear-usuario']" class="nav-link active" aria-current="page">
+                            <img src="../../../assets/chat.png">
                             Chat
                         </a>
                     </li>
                     <li class="nav-item box">
-                        <a class="nav-link active" aria-current="page" href="#">
-                            <img src="../../../assets/product-management.png">
+                        <a [routerLink]="['/crear-usuario']" class="nav-link active" aria-current="page">
+                            <img src="../../../assets/client.png">
                             Compradores
                         </a>
                     </li>
