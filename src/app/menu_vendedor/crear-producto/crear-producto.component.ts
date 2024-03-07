@@ -1,22 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductoServiceService } from 'src/app/servicios/producto-service.service';
+import { TagService } from 'src/app/servicios/tag.service';
 
 @Component({
   selector: 'app-crear-producto',
   templateUrl: './crear-producto.component.html',
   styleUrls: ['./crear-producto.component.css'],
 })
-export class CrearProductoComponent {
+export class CrearProductoComponent implements OnInit {
   formSubir: FormGroup; //formulario para la subida de archivos
   imagenUrl: any = '';
   file!: File;
   banderaError: boolean = false;
   banderaAcierto: boolean = false;
   mensaje: string = '';
+  tags: Array<any> = new Array();
+  tagsSeleccionados: Array<any> = new Array();
+
   constructor(
     private formBuilder: FormBuilder,
-    private productoService: ProductoServiceService
+    private productoService: ProductoServiceService,
+    private tagServise: TagService
   ) {
     this.formSubir = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(1)]],
@@ -24,6 +29,25 @@ export class CrearProductoComponent {
       imagen: ['', [Validators.required]],
       precio: ['', [Validators.required, Validators.minLength(1)]],
     });
+  }
+  ngOnInit(): void {
+    this.mostrarTodosLosTags();
+  }
+
+  public anadirTag(id: any): void {
+    // Extraemos el objeto del array de origen usando el índice proporcionado
+    const objetoExtraido = this.tags.splice(id, 1)[0];
+
+    // Insertamos el objeto extraído en el array de destino
+    this.tagsSeleccionados.push(objetoExtraido);
+  }
+
+  public eliminarTag(id: any): void {
+    // Extraemos el objeto del array de origen usando el índice proporcionado
+    const objetoExtraido = this.tagsSeleccionados.splice(id, 1)[0];
+
+    // Insertamos el objeto extraído en el array de destino
+    this.tags.push(objetoExtraido);
   }
 
   get nombre() {
@@ -38,6 +62,13 @@ export class CrearProductoComponent {
     return this.formSubir.get('precio');
   }
 
+  public mostrarTodosLosTags() {
+    this.tagServise.traerTodosLosTags().subscribe((res) => {
+      this.tags = res.tags;
+      console.log(res);
+    });
+  }
+
   public crearArticulo(): void {
     //volver banderas de confirmacion a false
     this.banderaAcierto = false;
@@ -45,7 +76,7 @@ export class CrearProductoComponent {
 
     //usuar el servicio para enviar un nuevo articulo
     this.productoService
-      .crearProducto(this.formSubir.value, this.file)
+      .crearProducto(this.formSubir.value, this.file, this.tagsSeleccionados)
       .subscribe((respuesta: any) => {
         if (respuesta.bandera === true) {
           this.banderaAcierto = true;

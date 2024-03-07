@@ -15,7 +15,7 @@
                     <span></span>
                     <span></span>
                     <span></span>
-                    <span></span> Crear articulo
+                    <span></span> Crear Tag
                 </button>
             </div>
             <br>
@@ -29,6 +29,6 @@
     </div>
     <h3>Tus Tags</h3>
     <div class="tags-container">
-        <app-tag></app-tag>
+        <app-tag-eliminar *ngFor="let tag of tags" [tag]="tag" (event)="mostrarTags()"></app-tag-eliminar>
     </div>
 </div>

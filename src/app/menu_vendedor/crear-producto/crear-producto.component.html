@@ -1,46 +1,62 @@
 <div class="container">
-    <!-- Formulario reactivo -->
-    <form [formGroup]="formSubir" (submit)="crearArticulo()">
-      <div class="form-section-container">
-        <h3>Vende un articulo</h3>
-        <div class="inputbox">
-          <input type="text" required="required" formControlName="nombre">
-          <span>Nombre del articulo</span>
-          <i></i>
-        </div>
-        <div class="inputbox">
-          <input type="text" required="required" formControlName="descripcion">
-          <span>Descripcion del articulo</span>
-          <i></i>
-        </div>
-        <div class="mb-3">
-          <label for="formFile" class="form-label">Imagen del articulo</label>
-          <input class="form-control" type="file" id="formFile" (change)="onFileChange($event)" formControlName="imagen"
-            accept="image/png, image/jpeg, image/webp">
-        </div>
-        <!--Visualizador de imagen-->
-        <img *ngIf="imagenUrl" class="img-fluid img-thumbnail img" src="{{imagenUrl}}">
-        <!---->
-        <div class="inputbox">
-          <input type="number" required="required" formControlName="precio" step="0.01" min="0.01">
-          <span>Precio del articulo</span>
-          <i></i>
-        </div>
-        <!-- Boton de ingresar -->
-        <button [hidden]="formSubir.invalid">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span> Crear articulo
-        </button>
+  <!-- Formulario reactivo -->
+  <form [formGroup]="formSubir" (submit)="crearArticulo()">
+    <div class="form-section-container">
+      <h3>Vende un articulo</h3>
+      <div class="inputbox">
+        <input type="text" required="required" formControlName="nombre">
+        <span>Nombre del articulo</span>
+        <i></i>
       </div>
-      <br>
-      <div *ngIf="banderaError" class="alert alert-danger" role="alert">
-        {{mensaje}}
+      <div class="inputbox">
+        <input type="text" required="required" formControlName="descripcion">
+        <span>Descripcion del articulo</span>
+        <i></i>
       </div>
-      <div *ngIf="banderaAcierto" class="alert alert-success" role="alert">
-        {{mensaje}}
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Imagen del articulo</label>
+        <input class="form-control" type="file" id="formFile" (change)="onFileChange($event)" formControlName="imagen"
+          accept="image/png, image/jpeg, image/webp">
       </div>
-    </form>
+      <!--Visualizador de imagen-->
+      <img *ngIf="imagenUrl" class="img-fluid img-thumbnail img" src="{{imagenUrl}}">
+      <!---->
+      <div class="inputbox">
+        <input type="number" required="required" formControlName="precio" step="0.01" min="0.01">
+        <span>Precio del articulo</span>
+        <i></i>
+      </div>
+      <!-- Boton de ingresar -->
+      <button [hidden]="formSubir.invalid">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span> Crear articulo
+      </button>
+    </div>
+    <br>
+    <div *ngIf="banderaError" class="alert alert-danger" role="alert">
+      {{mensaje}}
+    </div>
+    <div *ngIf="banderaAcierto" class="alert alert-success" role="alert">
+      {{mensaje}}
+    </div>
+  </form>
+</div>
+
+<div class="tags-container">
+  <div>
+    <h3>Tags</h3>
+    <div class="selector-tag">
+      <app-tag-add *ngFor="let tag of tags; let i = index" [tag]="tag" (event)="anadirTag(i)"></app-tag-add>
+    </div>
   </div>
-  
+  <div>
+    <h3>Tags Seleccionados</h3>
+    <div class="selector-tag">
+      <app-tag-del *ngFor="let tag of tagsSeleccionados; let i = index" [tag]="tag"
+        (event)="eliminarTag(i)"></app-tag-del>
+    </div>
+  </div>
+
+</div>

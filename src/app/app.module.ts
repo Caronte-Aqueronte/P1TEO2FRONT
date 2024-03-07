@@ -13,8 +13,24 @@ import { CrearProductoComponent } from './menu_vendedor/crear-producto/crear-pro
 import { EditarProductoComponent } from './menu_vendedor/editar-producto/editar-producto.component';
 import { CrearTagComponent } from './menu_vendedor/crear-tag/crear-tag.component';
 import { TagComponent } from './menu_vendedor/tag/tag.component';
+import { APP_BASE_HREF } from '@angular/common';
+import { TagEliminarComponent } from './menu_vendedor/tag-eliminar/tag-eliminar.component';
+import { TagAddComponent } from './menu_vendedor/tag-add/tag-add.component';
+import { TagDelComponent } from './menu_vendedor/tag-del/tag-del.component';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, MenuVendedorPageComponent, NavBarVendedorComponent, CrearProductoComponent, EditarProductoComponent, CrearTagComponent, TagComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    MenuVendedorPageComponent,
+    NavBarVendedorComponent,
+    CrearProductoComponent,
+    EditarProductoComponent,
+    CrearTagComponent,
+    TagComponent,
+    TagEliminarComponent,
+    TagAddComponent,
+    TagDelComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,7 +38,13 @@ import { TagComponent } from './menu_vendedor/tag/tag.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [CookieService],
+  providers: [
+    CookieService,
+    {
+      provide: APP_BASE_HREF,
+      useValue: './',
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
