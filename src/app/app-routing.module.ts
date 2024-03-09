@@ -4,6 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { MenuVendedorPageComponent } from './menu_vendedor/menu-vendedor-page/menu-vendedor-page.component';
 import { CrearProductoComponent } from './menu_vendedor/crear-producto/crear-producto.component';
 import { CrearTagComponent } from './menu_vendedor/crear-tag/crear-tag.component';
+import { TusProductosComponent } from './menu_vendedor/tus-productos/tus-productos.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'tags',
         component: CrearTagComponent,
+      },
+      {
+        path: 'tus_prductos',
+        component: TusProductosComponent,
       },
     ],
   },

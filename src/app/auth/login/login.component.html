@@ -49,8 +49,10 @@
                 <a [routerLink]="['/crear-usuario']">¿No tienes una cuenta?</a>
 
                 <ng-container *ngIf="banderaError">
-                    <small *ngIf="banderaError" class="alerta">Credenciales incorrectas
-                    </small>
+                    <div class="error">
+                        <small *ngIf="banderaError" class="alerta">{{mensajeError}}
+                        </small>
+                    </div>
                 </ng-container>
             </div>
         </form>

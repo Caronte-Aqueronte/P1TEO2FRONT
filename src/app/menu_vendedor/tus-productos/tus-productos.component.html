@@ -1,0 +1,33 @@
+<div class="container">
+    <h3>
+        Tus productos vendidos
+    </h3>
+    <div class="cards-contianer">
+        <app-producto-card-vendido *ngFor="let prod of productosVendidos"
+            [producto]="prod"></app-producto-card-vendido>
+    </div>
+
+    <h3>
+        Tus productos aprobados
+    </h3>
+    <div class="cards-contianer">
+        <app-producto-card-vendedor *ngFor="let prod of productosAprobados"
+            [producto]="prod" (eventEliminar)="eliminarProducto($event)"></app-producto-card-vendedor>
+    </div>
+
+    <h3>
+        Tus productos pendientes
+    </h3>
+    <div class="cards-contianer">
+        <app-producto-card-vendedor *ngFor="let prod of productosPendientes"
+            [producto]="prod" (eventEliminar)="eliminarProducto($event)"></app-producto-card-vendedor>
+    </div>
+
+    <h3>
+        Tus productos rechazados
+    </h3>
+    <div class="cards-contianer">
+        <app-producto-card-vendedor *ngFor="let prod of productosRechazados"
+            [producto]="prod" (eventEliminar)="eliminarProducto($event)"></app-producto-card-vendedor>
+    </div>
+</div>

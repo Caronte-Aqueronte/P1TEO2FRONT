@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
@@ -25,9 +25,67 @@ export class ProductoServiceService {
     form.append('nombre', producto.nombre);
     form.append('descripcion', producto.descripcion);
     form.append('precio', producto.precio);
+    form.append('mostrar_contacto', producto.switch);
     form.append('tags', JSON.stringify(tags));
     form.append('file', imagen, 'form-data'); //adjuntar la imagen
 
     return this.http.post<any>(this.url + '/crearProducto', form); //hacer un post a la aplicacion enviando la info del cliente
+  }
+
+  public eliminarProducto(id: any): Observable<any> {
+    // Hacer una solicitud DELETE para eliminar el tag por su ID
+    return this.http.delete<any>(`${this.url}/eliminarProducto/${id}`);
+  }
+
+  public traerProductosAprobadosDeUnUsuario(): Observable<any> {
+    let idUsuario = this.cookiesService.get('id');
+    // Configurar los parámetros para la solicitud GET
+    const params = new HttpParams().set('userId', idUsuario);
+
+    // Hacer la solicitud GET con los parámetros configurados
+    return this.http.get<any>(
+      this.url + '/traerProductosAprobadosDeUnUsuario',
+      {
+        params: params,
+      }
+    );
+  }
+
+  public traerProductosVendidosDelUsuario(): Observable<any> {
+    let idUsuario = this.cookiesService.get('id');
+    // Configurar los parámetros para la solicitud GET
+    const params = new HttpParams().set('userId', idUsuario);
+
+    // Hacer la solicitud GET con los parámetros configurados
+    return this.http.get<any>(this.url + '/traerProductosVendidosDelUsuario', {
+      params: params,
+    });
+  }
+  public traerProductosRechazadosDeUnUsuario(): Observable<any> {
+    let idUsuario = this.cookiesService.get('id');
+    // Configurar los parámetros para la solicitud GET
+    const params = new HttpParams().set('userId', idUsuario);
+
+    // Hacer la solicitud GET con los parámetros configurados
+    return this.http.get<any>(
+      this.url + '/traerProductosRechazadosDeUnUsuario',
+      {
+        params: params,
+      }
+    );
+  }
+
+  public traerProductosPendientesDeUnUsuario(): Observable<any> {
+    let idUsuario = this.cookiesService.get('id');
+    // Configurar los parámetros para la solicitud GET
+    const params = new HttpParams().set('userId', idUsuario);
+
+    // Hacer la solicitud GET con los parámetros configurados
+    return this.http.get<any>(
+      this.url + '/traerProductosPendientesDeUnUsuario',
+      {
+        params: params,
+      }
+    );
   }
 }

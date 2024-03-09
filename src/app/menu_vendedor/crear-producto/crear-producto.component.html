@@ -23,9 +23,17 @@
       <!---->
       <div class="inputbox">
         <input type="number" required="required" formControlName="precio" step="0.01" min="0.01">
-        <span>Precio del articulo</span>
+        <span>Precio del articulo ☘️</span>
         <i></i>
       </div>
+      <p>
+        Deseas mostrar tus contactos en la publicacion?
+      </p>
+      <label class="switch">
+        <input type="checkbox" formControlName="switch">
+        <span class="slider"></span>
+      </label>
+
       <!-- Boton de ingresar -->
       <button [hidden]="formSubir.invalid">
         <span></span>

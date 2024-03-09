@@ -11,7 +11,7 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 export class LoginComponent {
   banderaError: boolean = false;
   formLogin: FormGroup;
-
+  mensajeError: any = '';
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -61,10 +61,13 @@ export class LoginComponent {
     this.usuarioServise.login(usuario).subscribe((respuesta: any) => {
       console.log(respuesta);
       //si no se devuelve null entonces decidimos a que menu enviar al usuario
-      if (respuesta) {
+      if (respuesta.bandera == true) {
         //guardamos la info del cliente
         this.cookiesService.set('email', correoEntry);
-        this.cookiesService.set('user', respuesta.usuarioEncontrado.nombre_usuario);
+        this.cookiesService.set(
+          'user',
+          respuesta.usuarioEncontrado.nombre_usuario
+        );
         this.cookiesService.set('id', respuesta.usuarioEncontrado.id);
         switch (respuesta.usuarioEncontrado.rol) {
           case 'administrador': {
@@ -85,6 +88,7 @@ export class LoginComponent {
         }
       } else {
         this.banderaError = true; //si el login fallo entonces activamos el error
+        this.mensajeError = respuesta.mensaje;
       }
     });
   }

@@ -28,6 +28,7 @@ export class CrearProductoComponent implements OnInit {
       descripcion: ['', [Validators.required, Validators.minLength(1)]],
       imagen: ['', [Validators.required]],
       precio: ['', [Validators.required, Validators.minLength(1)]],
+      switch: [false, []],
     });
   }
   ngOnInit(): void {

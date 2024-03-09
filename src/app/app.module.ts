@@ -17,6 +17,9 @@ import { APP_BASE_HREF } from '@angular/common';
 import { TagEliminarComponent } from './menu_vendedor/tag-eliminar/tag-eliminar.component';
 import { TagAddComponent } from './menu_vendedor/tag-add/tag-add.component';
 import { TagDelComponent } from './menu_vendedor/tag-del/tag-del.component';
+import { TusProductosComponent } from './menu_vendedor/tus-productos/tus-productos.component';
+import { ProductoCardVendedorComponent } from './menu_vendedor/producto-card-vendedor/producto-card-vendedor.component';
+import { ProductoCardVendidoComponent } from './menu_vendedor/producto-card-vendido/producto-card-vendido.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,9 @@ import { TagDelComponent } from './menu_vendedor/tag-del/tag-del.component';
     TagEliminarComponent,
     TagAddComponent,
     TagDelComponent,
+    TusProductosComponent,
+    ProductoCardVendedorComponent,
+    ProductoCardVendidoComponent,
   ],
   imports: [
     BrowserModule,
