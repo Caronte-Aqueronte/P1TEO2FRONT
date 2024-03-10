@@ -88,4 +88,13 @@ export class ProductoServiceService {
       }
     );
   }
+
+  public recomendarProductoPorNombreYTags(tags: any, nombre: any) {
+    const res = {
+      nombreProducto: nombre,
+      etiquetas: tags,
+    };
+    // Hacer la solicitud POST con los parámetros configurados
+    return this.http.post<any>(this.url + '/recomendarProductos', res);
+  }
 }

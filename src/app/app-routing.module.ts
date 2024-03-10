@@ -5,6 +5,8 @@ import { MenuVendedorPageComponent } from './menu_vendedor/menu-vendedor-page/me
 import { CrearProductoComponent } from './menu_vendedor/crear-producto/crear-producto.component';
 import { CrearTagComponent } from './menu_vendedor/crear-tag/crear-tag.component';
 import { TusProductosComponent } from './menu_vendedor/tus-productos/tus-productos.component';
+import { MenuCompradorPageComponent } from './menu_comprador/menu-comprador-page/menu-comprador-page.component';
+import { CrearCompraComponent } from './menu_comprador/crear-compra/crear-compra.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,24 @@ const routes: Routes = [
       {
         path: 'crear_producto',
         component: CrearProductoComponent,
+      },
+      {
+        path: 'tags',
+        component: CrearTagComponent,
+      },
+      {
+        path: 'tus_prductos',
+        component: TusProductosComponent,
+      },
+    ],
+  },
+  {
+    path: 'menu_comprador',
+    component: MenuCompradorPageComponent,
+    children: [
+      {
+        path: 'crear_compra',
+        component: CrearCompraComponent,
       },
       {
         path: 'tags',

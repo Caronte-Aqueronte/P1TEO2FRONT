@@ -79,7 +79,7 @@ export class LoginComponent {
             break;
           }
           case 'comprador': {
-            //statements;
+            this.router.navigate(['/menu_comprador']);
             break;
           }
           default: {
