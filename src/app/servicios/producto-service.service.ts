@@ -51,6 +51,19 @@ export class ProductoServiceService {
     );
   }
 
+
+  public traerProductoPorId(id:any): Observable<any> {
+    // Configurar los parámetros para la solicitud GET
+    const params = new HttpParams().set('id', id);
+    // Hacer la solicitud GET con los parámetros configurados
+    return this.http.get<any>(
+      this.url + '/traerProductoPorId',
+      {
+        params: params,
+      }
+    );
+  }
+
   public traerProductosVendidosDelUsuario(): Observable<any> {
     let idUsuario = this.cookiesService.get('id');
     // Configurar los parámetros para la solicitud GET
@@ -93,6 +106,7 @@ export class ProductoServiceService {
     const res = {
       nombreProducto: nombre,
       etiquetas: tags,
+      idUsuario: this.cookiesService.get("id"),
     };
     // Hacer la solicitud POST con los parámetros configurados
     return this.http.post<any>(this.url + '/recomendarProductos', res);

@@ -20,10 +20,13 @@ import { TagDelComponent } from './menu_vendedor/tag-del/tag-del.component';
 import { TusProductosComponent } from './menu_vendedor/tus-productos/tus-productos.component';
 import { ProductoCardVendedorComponent } from './menu_vendedor/producto-card-vendedor/producto-card-vendedor.component';
 import { ProductoCardVendidoComponent } from './menu_vendedor/producto-card-vendido/producto-card-vendido.component';
-import { MenuCompradorPageComponent } from './menu_comprador/menu-comprador-page/menu-comprador-page.component';
-import { NavBarCompradorComponent } from './menu_comprador/nav-bar-comprador/nav-bar-comprador.component';
-import { CrearCompraComponent } from './menu_comprador/crear-compra/crear-compra.component';
-import { CardProductoCompraComponent } from './menu_comprador/card-producto-compra/card-producto-compra.component';
+import { CrearCompraComponent } from './menu_vendedor/crear-compra/crear-compra.component';
+import { CardProductoCompraComponent } from './menu_vendedor/card-producto-compra/card-producto-compra.component';
+import { VerproductoComponent } from './menu_vendedor/verproducto/verproducto.component';
+import { MonedasComponent } from './menu_vendedor/monedas/monedas.component';
+import { AdminPageComponent } from './menu_admin/admin-page/admin-page.component';
+import { CrearUsuarioComponent } from './auth/crear-usuario/crear-usuario.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,10 +43,12 @@ import { CardProductoCompraComponent } from './menu_comprador/card-producto-comp
     TusProductosComponent,
     ProductoCardVendedorComponent,
     ProductoCardVendidoComponent,
-    MenuCompradorPageComponent,
-    NavBarCompradorComponent,
     CrearCompraComponent,
     CardProductoCompraComponent,
+    VerproductoComponent,
+    MonedasComponent,
+    AdminPageComponent,
+    CrearUsuarioComponent,
   ],
   imports: [
     BrowserModule,

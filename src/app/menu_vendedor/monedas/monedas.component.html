@@ -1,0 +1,57 @@
+<div class="contenedor">
+
+    <form class="info" [formGroup]="formCompra" (submit)="comprarMonedas()">
+        <p>Tu Saldo ☘️ {{monedasDelUsuario}}</p>
+        <div class="form-section-container">
+            <h3>Compra ☘️</h3>
+            <div class="inputbox">
+                <input type="number" required="required" formControlName="cantidadCompra">
+                <span>¿Cuanto deseas recargar?</span>
+                <i></i>
+            </div>
+            <!-- Boton de ingresar -->
+            <button [hidden]="formCompra.invalid">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span> Recarga treboles
+            </button>
+        </div>
+        <br>
+        <div *ngIf="banderaError" class="alert alert-danger" role="alert">
+            {{mensaje}}
+        </div>
+        <div *ngIf="banderaAcierto" class="alert alert-success" role="alert">
+            {{mensaje}}
+        </div>
+    </form>
+
+    <form class="info" [formGroup]="formRetiro" (submit)="retirarMonedas()">
+        <p>Tu saldo retirable ☘️ {{retirables}}</p>
+        <p>Total retirado hasta el momento Q.{{totalRetiros}}</p>
+        <div class="form-section-container">
+            <h3>Retira tus ☘️</h3>
+            <div class="inputbox">
+                <input type="number" required="required" formControlName="cantidadRetiro">
+                <span>¿Cuanto deseas retirar?</span>
+                <i></i>
+            </div>
+            <!-- Boton de ingresar -->
+            <button [hidden]="formRetiro.invalid">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span> Retira tus treboles
+            </button>
+        </div>
+
+ 
+        <br>
+        <div *ngIf="banderaErrorRetiro" class="alert alert-danger" role="alert">
+            {{mensajeRetiro}}
+        </div>
+        <div *ngIf="banderaAciertoRetiro" class="alert alert-success" role="alert">
+            {{mensajeRetiro}}
+        </div>
+    </form>
+</div>

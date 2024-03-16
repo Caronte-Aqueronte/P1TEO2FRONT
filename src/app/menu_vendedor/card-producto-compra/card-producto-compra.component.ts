@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { API_PATH } from 'src/globasl';
 
 @Component({
@@ -11,11 +12,16 @@ export class CardProductoCompraComponent implements OnInit {
   @Output() eventVer = new EventEmitter<any>();
   pathimg: any = API_PATH;
 
+  constructor(private router:Router){
+
+  }
+
   ngOnInit(): void {
     this.pathimg += '/' + this.producto.imagen;
   }
 
   public ver(): void {
-    this.eventVer.emit(this.producto.id);
+    //nos movemos hacia ver
+    this.router.navigate([`/menu_usuarios/ver_producto/${this.producto.id}`]);
   }
 }

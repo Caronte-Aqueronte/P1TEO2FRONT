@@ -74,12 +74,8 @@ export class LoginComponent {
             //statements;
             break;
           }
-          case 'vendedor': {
-            this.router.navigate(['/menu_vendedor']);
-            break;
-          }
-          case 'comprador': {
-            this.router.navigate(['/menu_comprador']);
+          case 'usuario': {
+            this.router.navigate(['/menu_usuarios']);
             break;
           }
           default: {

@@ -5,8 +5,10 @@ import { MenuVendedorPageComponent } from './menu_vendedor/menu-vendedor-page/me
 import { CrearProductoComponent } from './menu_vendedor/crear-producto/crear-producto.component';
 import { CrearTagComponent } from './menu_vendedor/crear-tag/crear-tag.component';
 import { TusProductosComponent } from './menu_vendedor/tus-productos/tus-productos.component';
-import { MenuCompradorPageComponent } from './menu_comprador/menu-comprador-page/menu-comprador-page.component';
-import { CrearCompraComponent } from './menu_comprador/crear-compra/crear-compra.component';
+import { CrearCompraComponent } from './menu_vendedor/crear-compra/crear-compra.component';
+import { VerproductoComponent } from './menu_vendedor/verproducto/verproducto.component';
+import { MonedasComponent } from './menu_vendedor/monedas/monedas.component';
+import { CrearUsuarioComponent } from './auth/crear-usuario/crear-usuario.component';
 
 const routes: Routes = [
   {
@@ -22,7 +24,11 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'menu_vendedor',
+    path: 'crear_usuario',
+    component: CrearUsuarioComponent,
+  },
+  {
+    path: 'menu_usuarios',
     component: MenuVendedorPageComponent,
     children: [
       {
@@ -34,15 +40,13 @@ const routes: Routes = [
         component: CrearTagComponent,
       },
       {
+        path: 'treboles',
+        component: MonedasComponent,
+      },
+      {
         path: 'tus_prductos',
         component: TusProductosComponent,
       },
-    ],
-  },
-  {
-    path: 'menu_comprador',
-    component: MenuCompradorPageComponent,
-    children: [
       {
         path: 'crear_compra',
         component: CrearCompraComponent,
@@ -52,8 +56,8 @@ const routes: Routes = [
         component: CrearTagComponent,
       },
       {
-        path: 'tus_prductos',
-        component: TusProductosComponent,
+        path: 'ver_producto/:idProd',
+        component: VerproductoComponent,
       },
     ],
   },

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">BazarTIKAL-Vendedor</a>
+        <a class="navbar-brand" href="#">BazarTIKAL</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,9 +28,21 @@
                         </a>
                     </li>
                     <li class="nav-item box">
+                        <a [routerLink]="['treboles']" class="nav-link active" aria-current="page">
+                            <img src="../../../assets/clover.png">
+                            Compra Treboles ☘️
+                        </a>
+                    </li>
+                    <li class="nav-item box">
                         <a [routerLink]="['tags']" class="nav-link active" aria-current="page">
-                            <img src="../../../assets/client.png">
+                            <img src="../../../assets/tag.png">
                             Tags
+                        </a>
+                    </li>
+                    <li class="nav-item box">
+                        <a [routerLink]="['crear_compra']" class="nav-link active" aria-current="page">
+                            <img src="../../../assets/sale.png">
+                            Crea una compra
                         </a>
                     </li>
                     <li class="nav-item box">
