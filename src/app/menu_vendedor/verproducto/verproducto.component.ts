@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ProductoServiceService } from 'src/app/servicios/producto-service.service';
+import { ReporteService } from 'src/app/servicios/reporte.service';
 import { API_PATH } from 'src/globasl';
 
 @Component({
@@ -15,11 +16,13 @@ export class VerproductoComponent implements OnInit {
   usuarioVendedor: any;
   tags: Array<any> = new Array();
   usuarioRegistrado: any;
+  mensajeReporte = '';
   constructor(
     private router: Router,
     private rutaActiva: ActivatedRoute,
     private productoService: ProductoServiceService,
-    private cookiesService: CookieService
+    private cookiesService: CookieService,
+    private reporteService: ReporteService
   ) {}
 
   ngOnInit(): void {
@@ -55,7 +58,13 @@ export class VerproductoComponent implements OnInit {
     });
   }
 
-  public mandarReporte(){
-
+  public mandarReporte() {
+    console.log(this.mensajeReporte)
+    this.reporteService
+      .crearReporte(this.producto.id, this.mensajeReporte)
+      .subscribe((res) => {
+        alert(res.mensaje);
+        this.mensajeReporte = '';
+      });
   }
 }

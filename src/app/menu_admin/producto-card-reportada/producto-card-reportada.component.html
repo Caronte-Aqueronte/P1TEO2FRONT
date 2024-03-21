@@ -1,1 +1,19 @@
-<p>producto-card-reportada works!</p>
+<div class="card">
+    <div class="card-img">
+        <img [src]="pathimg" alt="" class="img">
+    </div>
+    <div class="card-title">{{producto.nombre}}</div>
+    <div class="card-subtitle">{{producto.descripcion}}</div>
+    <hr class="card-divider">
+    <div class="card-footer">
+        <div class="card-price"><span>☘️</span> {{producto.precio}}</div>
+        <button type="button" class="btn-eliminar" (click)="eliminarReportes()">
+            Eliminar reportes
+            <img src="../../../assets/trash-can.png" alt="">
+        </button> 
+        <button type="button" class="btn-ver" (click)="ver()">
+            Ver
+            <img src="../../../assets/see.png" alt="">
+        </button>  
+    </div>
+</div>

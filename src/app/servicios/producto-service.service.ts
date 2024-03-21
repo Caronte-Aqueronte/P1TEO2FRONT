@@ -51,17 +51,13 @@ export class ProductoServiceService {
     );
   }
 
-
-  public traerProductoPorId(id:any): Observable<any> {
+  public traerProductoPorId(id: any): Observable<any> {
     // Configurar los parámetros para la solicitud GET
     const params = new HttpParams().set('id', id);
     // Hacer la solicitud GET con los parámetros configurados
-    return this.http.get<any>(
-      this.url + '/traerProductoPorId',
-      {
-        params: params,
-      }
-    );
+    return this.http.get<any>(this.url + '/traerProductoPorId', {
+      params: params,
+    });
   }
 
   public traerProductosVendidosDelUsuario(): Observable<any> {
@@ -104,30 +100,29 @@ export class ProductoServiceService {
 
   public traerSolicitudesDeAprovacion(): Observable<any> {
     // Hacer la solicitud GET con los parámetros configurados
-    return this.http.get<any>(
-      this.url + '/traerSolicitudesDeAprovacion'
-    );
+    return this.http.get<any>(this.url + '/traerSolicitudesDeAprovacion');
   }
 
-  public aceptarProducto(id:any): Observable<any> {
+  public mostrarProductosReportados(): Observable<any> {
     // Hacer la solicitud GET con los parámetros configurados
-    return this.http.post<any>(
-      this.url + '/aceptarProducto', {id:id}
-    );
+    return this.http.get<any>(this.url + '/mostrarProductosReportados');
   }
 
-  public rechazarProducto(id:any): Observable<any> {
+  public aceptarProducto(id: any): Observable<any> {
     // Hacer la solicitud GET con los parámetros configurados
-    return this.http.post<any>(
-      this.url + '/rechazarProducto', {id:id}
-    );
+    return this.http.post<any>(this.url + '/aceptarProducto', { id: id });
+  }
+
+  public rechazarProducto(id: any): Observable<any> {
+    // Hacer la solicitud GET con los parámetros configurados
+    return this.http.post<any>(this.url + '/rechazarProducto', { id: id });
   }
 
   public recomendarProductoPorNombreYTags(tags: any, nombre: any) {
     const res = {
       nombreProducto: nombre,
       etiquetas: tags,
-      idUsuario: this.cookiesService.get("id"),
+      idUsuario: this.cookiesService.get('id'),
     };
     // Hacer la solicitud POST con los parámetros configurados
     return this.http.post<any>(this.url + '/recomendarProductos', res);

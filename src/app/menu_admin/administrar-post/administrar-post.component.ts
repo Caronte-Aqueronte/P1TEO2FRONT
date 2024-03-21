@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoServiceService } from 'src/app/servicios/producto-service.service';
+import { ReporteService } from 'src/app/servicios/reporte.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
@@ -10,9 +11,11 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 export class AdministrarPostComponent implements OnInit {
   nombreUsuario = '';
   solicitudes: any = [];
+  reportes: any = [];
   usuarios: any = [];
 
-  constructor(private productoService: ProductoServiceService) {}
+  constructor(private productoService: ProductoServiceService,
+    private reportesService:ReporteService) {}
 
   ngOnInit(): void {
     this.traerSolicitudes();
@@ -37,6 +40,17 @@ export class AdministrarPostComponent implements OnInit {
     });
   }
 
+
+  public eliminarReportes(id: any) {
+    this.reportesService.eliminarReportes(id).subscribe((res) => {
+      alert(res.mensaje);
+      if (res.bandera) {
+        this.traerReportes();
+      }
+    });
+  }
+
+
   public verPublicacion(id: any) {}
 
   public traerSolicitudes() {
@@ -46,8 +60,9 @@ export class AdministrarPostComponent implements OnInit {
   }
 
   public traerReportes() {
-    this.productoService.traerSolicitudesDeAprovacion().subscribe((res) => {
-      this.solicitudes = res;
+    this.productoService.mostrarProductosReportados().subscribe((res) => {
+      console.log(res)
+      this.reportes = res;
     });
   }
 }
