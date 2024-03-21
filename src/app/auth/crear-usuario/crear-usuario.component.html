@@ -71,14 +71,14 @@
 
 
         <ng-container *ngIf="banderaError">
-            <div class="error">
-                <small *ngIf="banderaError" class="alerta">{{mensajeError}}
+            <div class="pop error">
+                <small *ngIf="banderaError">{{mensajeError}}
                 </small>
             </div>
         </ng-container>
         <ng-container *ngIf="banderaAcierto">
-            <div class="error">
-                <small *ngIf="banderaAcierto" class="alerta">{{mensajeError}}
+            <div class="pop acierto">
+                <small *ngIf="banderaAcierto">{{mensajeError}}
                 </small>
             </div>
         </ng-container>

@@ -1,0 +1,23 @@
+<div class="container">
+    <h3>
+        Solicitudes de aprobación
+    </h3>
+    <div class="cards-contianer">
+        <app-user-card-solicitud *ngFor="let soli of solicitudes" [usuario]="soli" (event)="aceptarUsuario($event)">
+        </app-user-card-solicitud>
+    </div>
+
+    <h3>
+        Elimina Usuarios
+    </h3>
+    <div class="inputbox">
+        <input type="text" required="true" (input)="buscarUsuariosPorNombre()" [(ngModel)]="nombreUsuario">
+        <span>Buscar por nombre de usuario</span>
+        <i></i>
+    </div>
+    <div class="cards-contianer">
+        <app-user-card *ngFor="let user of usuarios" [usuario]="user" (event)="eliminarUsuario($event)">
+        </app-user-card>
+    </div>
+
+</div>

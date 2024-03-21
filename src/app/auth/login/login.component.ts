@@ -70,8 +70,8 @@ export class LoginComponent {
         );
         this.cookiesService.set('id', respuesta.usuarioEncontrado.id);
         switch (respuesta.usuarioEncontrado.rol) {
-          case 'administrador': {
-            //statements;
+          case 'admin': {
+            this.router.navigate(['/menu_admin']);
             break;
           }
           case 'usuario': {

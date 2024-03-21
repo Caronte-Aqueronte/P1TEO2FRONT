@@ -1,0 +1,19 @@
+<div class="container">
+    <h3>
+        Solicitudes de aprobación
+    </h3>
+    <div class="cards-contianer">
+        <app-producto-card-aprovacion *ngFor="let producto of solicitudes" [producto]="producto" (eventAceptar)="aceptarPublicacion($event)"
+        (eventRechazar)="rechazarPublicacion($event)">
+        </app-producto-card-aprovacion>
+    </div>
+
+    <h3>
+        Publicaciones reportadas
+    </h3>
+    <div class="cards-contianer">
+        <app-user-card *ngFor="let user of usuarios" [usuario]="user" (event)="aceptarPublicacion($event)">
+        </app-user-card>
+    </div>
+
+</div>

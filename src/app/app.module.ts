@@ -26,6 +26,14 @@ import { VerproductoComponent } from './menu_vendedor/verproducto/verproducto.co
 import { MonedasComponent } from './menu_vendedor/monedas/monedas.component';
 import { AdminPageComponent } from './menu_admin/admin-page/admin-page.component';
 import { CrearUsuarioComponent } from './auth/crear-usuario/crear-usuario.component';
+import { NavBarAdminComponent } from './menu_admin/nav-bar-admin/nav-bar-admin.component';
+import { CrearUsuarioAdminComponent } from './menu_admin/crear-usuario-admin/crear-usuario-admin.component';
+import { AdministrarUsuariosComponent } from './menu_admin/administrar-usuarios/administrar-usuarios.component';
+import { UserCardComponent } from './menu_admin/user-card/user-card.component';
+import { UserCardSolicitudComponent } from './menu_admin/user-card-solicitud/user-card-solicitud.component';
+import { AdministrarPostComponent } from './menu_admin/administrar-post/administrar-post.component';
+import { ProductoCardAprovacionComponent } from './menu_admin/producto-card-aprovacion/producto-card-aprovacion.component';
+import { ProductoCardReportadaComponent } from './menu_admin/producto-card-reportada/producto-card-reportada.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +57,14 @@ import { CrearUsuarioComponent } from './auth/crear-usuario/crear-usuario.compon
     MonedasComponent,
     AdminPageComponent,
     CrearUsuarioComponent,
+    NavBarAdminComponent,
+    CrearUsuarioAdminComponent,
+    AdministrarUsuariosComponent,
+    UserCardComponent,
+    UserCardSolicitudComponent,
+    AdministrarPostComponent,
+    ProductoCardAprovacionComponent,
+    ProductoCardReportadaComponent,
   ],
   imports: [
     BrowserModule,

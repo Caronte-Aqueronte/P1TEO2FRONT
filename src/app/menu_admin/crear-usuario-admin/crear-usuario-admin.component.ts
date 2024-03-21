@@ -5,11 +5,11 @@ import { CookieService } from 'ngx-cookie-service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
-  selector: 'app-crear-usuario',
-  templateUrl: './crear-usuario.component.html',
-  styleUrls: ['./crear-usuario.component.css'],
+  selector: 'app-crear-usuario-admin',
+  templateUrl: './crear-usuario-admin.component.html',
+  styleUrls: ['./crear-usuario-admin.component.css'],
 })
-export class CrearUsuarioComponent {
+export class CrearUsuarioAdminComponent {
   banderaError: boolean = false;
   banderaAcierto: boolean = false;
   formLogin: FormGroup;
@@ -66,16 +66,27 @@ export class CrearUsuarioComponent {
     this.banderaError = false;
     this.banderaAcierto = false;
     this.usuarioServise
-      .crearUsuarioNormal(this.formLogin.value)
+      .crearUsuarioAdmin(this.formLogin.value)
       .subscribe((respuesta: any) => {
         //si no se devuelve null entonces decidimos a que menu enviar al usuario
-        if (respuesta.bandera === true) {
+        if (respuesta.bandera == true) {
           this.banderaAcierto = true; //si el login fallo entonces activamos el error
           this.mensajeError = respuesta.mensaje;
         } else {
           this.banderaError = true; //si el login fallo entonces activamos el error
           this.mensajeError = respuesta.mensaje;
         }
+        this.borrarForm();
       });
+  }
+
+  public borrarForm(): void {
+    this.formLogin.get('email')?.setValue('');
+    this.formLogin.get('password')?.setValue('');
+    this.formLogin.get('nombre_usuario')?.setValue('');
+
+    this.formLogin.get('email')?.reset();
+    this.formLogin.get('password')?.reset();
+    this.formLogin.get('nombre_usuario')?.reset();
   }
 }

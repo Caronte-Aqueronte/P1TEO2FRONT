@@ -13,8 +13,16 @@
   background-attachment: fixed;
 }
 
+.pop{
+  border-radius: 20px;
+  padding: 20px;
+}
 .error {
   background-color: red;
+  color: white;
+}
+.acierto{
+  background-color: green;
   color: white;
 }
 

@@ -1,8 +1,7 @@
 <div class="container">
-
     <!-- Formulario reactivo -->
-    <form [formGroup]="formLogin" (submit)="login()">
-        <h3>BazarTIKAL Login</h3>
+    <form [formGroup]="formLogin" (submit)="crearUsuario()">
+        <h3>Crear Usuario Administrador</h3>
         <div class="group">
             <input required="" type="text" class="input" formControlName="email" />
             <label>Correo electrónico</label>
@@ -37,21 +36,47 @@
                 </small>
             </ng-container>
         </div>
+
+
+        <div class="group">
+            <input required="" type="text" class="input" formControlName="nombre_usuario" />
+            <label>Nombre de usuario</label>
+            <ng-container *ngIf="
+                nombre_usuario?.errors &&
+                (nombre_usuario?.touched || nombre_usuario?.dirty)
+              ">
+                <small *ngIf="nombre_usuario?.errors?.['required']" class="alerta">El nombre de usuario es
+                    requerido.
+                </small>
+                <small *ngIf="nombre_usuario?.hasError('maxlength')" class="alerta">El nombre de usuario
+                    debe tener como máximo 256 caracteres.
+                </small>
+                <small *ngIf="nombre_usuario?.hasError('minLength')" class="alerta">El nombre de usuario
+                    debe tener como mínimo 1 carácter.
+                </small>
+            </ng-container>
+        </div>
+
         <!-- Boton de ingresar -->
         <button [disabled]="formLogin.invalid">
             <span></span>
             <span></span>
             <span></span>
-            <span></span> Login
+            <span></span> Crear usuario
         </button>
 
-        <a [routerLink]="['/crear_usuario']">¿No tienes una cuenta?</a>
-
         <ng-container *ngIf="banderaError">
-            <div class="pop error">
+            <div class="error">
                 <small *ngIf="banderaError">{{mensajeError}}
                 </small>
             </div>
         </ng-container>
+        <ng-container *ngIf="banderaAcierto">
+            <div class="acierto">
+                <small *ngIf="banderaAcierto">{{mensajeError}}
+                </small>
+            </div>
+        </ng-container>
+
     </form>
 </div>

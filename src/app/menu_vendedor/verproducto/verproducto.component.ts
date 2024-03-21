@@ -54,4 +54,8 @@ export class VerproductoComponent implements OnInit {
       }
     });
   }
+
+  public mandarReporte(){
+
+  }
 }

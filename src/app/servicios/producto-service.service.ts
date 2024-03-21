@@ -102,6 +102,27 @@ export class ProductoServiceService {
     );
   }
 
+  public traerSolicitudesDeAprovacion(): Observable<any> {
+    // Hacer la solicitud GET con los parámetros configurados
+    return this.http.get<any>(
+      this.url + '/traerSolicitudesDeAprovacion'
+    );
+  }
+
+  public aceptarProducto(id:any): Observable<any> {
+    // Hacer la solicitud GET con los parámetros configurados
+    return this.http.post<any>(
+      this.url + '/aceptarProducto', {id:id}
+    );
+  }
+
+  public rechazarProducto(id:any): Observable<any> {
+    // Hacer la solicitud GET con los parámetros configurados
+    return this.http.post<any>(
+      this.url + '/rechazarProducto', {id:id}
+    );
+  }
+
   public recomendarProductoPorNombreYTags(tags: any, nombre: any) {
     const res = {
       nombreProducto: nombre,

@@ -9,6 +9,10 @@ import { CrearCompraComponent } from './menu_vendedor/crear-compra/crear-compra.
 import { VerproductoComponent } from './menu_vendedor/verproducto/verproducto.component';
 import { MonedasComponent } from './menu_vendedor/monedas/monedas.component';
 import { CrearUsuarioComponent } from './auth/crear-usuario/crear-usuario.component';
+import { AdminPageComponent } from './menu_admin/admin-page/admin-page.component';
+import { CrearUsuarioAdminComponent } from './menu_admin/crear-usuario-admin/crear-usuario-admin.component';
+import { AdministrarUsuariosComponent } from './menu_admin/administrar-usuarios/administrar-usuarios.component';
+import { AdministrarPostComponent } from './menu_admin/administrar-post/administrar-post.component';
 
 const routes: Routes = [
   {
@@ -58,6 +62,24 @@ const routes: Routes = [
       {
         path: 'ver_producto/:idProd',
         component: VerproductoComponent,
+      },
+    ],
+  },
+  {
+    path: 'menu_admin',
+    component: AdminPageComponent,
+    children: [
+      {
+        path: 'crear_usuario',
+        component: CrearUsuarioAdminComponent,
+      },
+      {
+        path: 'administrar_usuarios',
+        component: AdministrarUsuariosComponent,
+      },
+      {
+        path: 'administrar_post',
+        component: AdministrarPostComponent,
       },
     ],
   },
