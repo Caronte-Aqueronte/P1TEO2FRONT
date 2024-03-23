@@ -13,6 +13,7 @@ import { AdminPageComponent } from './menu_admin/admin-page/admin-page.component
 import { CrearUsuarioAdminComponent } from './menu_admin/crear-usuario-admin/crear-usuario-admin.component';
 import { AdministrarUsuariosComponent } from './menu_admin/administrar-usuarios/administrar-usuarios.component';
 import { AdministrarPostComponent } from './menu_admin/administrar-post/administrar-post.component';
+import { VerProductoAdminComponent } from './menu_admin/ver-producto-admin/ver-producto-admin.component';
 
 const routes: Routes = [
   {
@@ -80,6 +81,10 @@ const routes: Routes = [
       {
         path: 'administrar_post',
         component: AdministrarPostComponent,
+      },
+      {
+        path: 'ver_producto/:idProd',
+        component: VerProductoAdminComponent,
       },
     ],
   },

@@ -34,6 +34,7 @@ import { UserCardSolicitudComponent } from './menu_admin/user-card-solicitud/use
 import { AdministrarPostComponent } from './menu_admin/administrar-post/administrar-post.component';
 import { ProductoCardAprovacionComponent } from './menu_admin/producto-card-aprovacion/producto-card-aprovacion.component';
 import { ProductoCardReportadaComponent } from './menu_admin/producto-card-reportada/producto-card-reportada.component';
+import { VerProductoAdminComponent } from './menu_admin/ver-producto-admin/ver-producto-admin.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ProductoCardReportadaComponent } from './menu_admin/producto-card-repor
     AdministrarPostComponent,
     ProductoCardAprovacionComponent,
     ProductoCardReportadaComponent,
+    VerProductoAdminComponent,
   ],
   imports: [
     BrowserModule,

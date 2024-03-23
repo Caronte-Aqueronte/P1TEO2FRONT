@@ -1,0 +1,67 @@
+<div class="contenedor">
+    <div class="imagen">
+        <img [src]="pathimg" alt="">
+    </div>
+
+    <div class="info">
+
+        <div class="info-container">
+            <p class="title">
+                {{producto.nombre}}
+            </p>
+
+            <p class="precio">
+                Precio: ☘️ {{producto.precio}}
+            </p>
+
+            <p class="des">
+                Descripción: {{producto.descripcion}}
+            </p>
+
+            <div>
+                Tags
+                <div class="tags-container">
+                    <div class="tag" *ngFor="let tag of tags">
+                        {{tag}}
+                    </div>
+                </div>
+            </div>
+
+            <button class="report" (click)="eliminarPublicacion()">Eliminar publicacion</button>
+            <button class="chat-button" (click)="eliminarReportes()">Eliminar Reportes</button>
+            <button class="report" (click)="eliminarUsuario()">Eliminar usuario creador</button>
+        </div>
+    </div>
+    <div class="info">
+        <div class="info-container">
+
+
+            <p class="title">
+                Vendedor {{usuarioVendedor.nombre}}
+            </p>
+            <div class="contactos" *ngIf="producto.mostrar_contacto">
+                contactos
+            </div>
+        </div>
+
+        <div class="info-container">
+
+
+            <p class="title">
+                Reportes
+            </p>
+
+            <div *ngFor="let reporte of reportes" class="card">
+                <h3 class="card__title">Id: {{reporte.id}}
+                </h3>
+                <p class="card__content">Motivo: {{reporte.motivo_reporte}}</p>
+                <div class="card__date">
+                    {{reporte.createdAt}}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

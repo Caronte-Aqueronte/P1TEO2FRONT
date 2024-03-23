@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { API_PATH } from 'src/globasl';
 
 @Component({
@@ -12,6 +13,10 @@ export class ProductoCardAprovacionComponent implements OnInit {
   @Output() eventRechazar = new EventEmitter<any>();
   pathimg: any = API_PATH;
 
+  constructor(private router:Router){
+
+  }
+
   ngOnInit(): void {
     this.pathimg += '/' + this.producto.imagen;
   }
@@ -22,5 +27,9 @@ export class ProductoCardAprovacionComponent implements OnInit {
 
   public aceptar(): void {
     this.eventAceptar.emit(this.producto.id);
+  }
+
+  public redirigir(){
+    this.router.navigate([`/menu_admin/ver_producto/${this.producto.id}`]);
   }
 }
