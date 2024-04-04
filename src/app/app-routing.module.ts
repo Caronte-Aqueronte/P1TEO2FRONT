@@ -14,6 +14,7 @@ import { CrearUsuarioAdminComponent } from './menu_admin/crear-usuario-admin/cre
 import { AdministrarUsuariosComponent } from './menu_admin/administrar-usuarios/administrar-usuarios.component';
 import { AdministrarPostComponent } from './menu_admin/administrar-post/administrar-post.component';
 import { VerProductoAdminComponent } from './menu_admin/ver-producto-admin/ver-producto-admin.component';
+import { MuroVentasComponent } from './menu_vendedor/muro-ventas/muro-ventas.component';
 
 const routes: Routes = [
   {
@@ -64,6 +65,10 @@ const routes: Routes = [
         path: 'ver_producto/:idProd',
         component: VerproductoComponent,
       },
+      {
+        path: 'muro_productos',
+        component: MuroVentasComponent,
+      },
     ],
   },
   {
@@ -86,6 +91,7 @@ const routes: Routes = [
         path: 'ver_producto/:idProd',
         component: VerProductoAdminComponent,
       },
+
     ],
   },
 ];

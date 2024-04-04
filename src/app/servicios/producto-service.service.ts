@@ -51,6 +51,20 @@ export class ProductoServiceService {
     );
   }
 
+  public traerTodosLosProductosQueNoPertenezanAlUsuario(): Observable<any> {
+    let idUsuario = this.cookiesService.get('id');
+    // Configurar los parámetros para la solicitud GET
+    const params = new HttpParams().set('userId', idUsuario);
+
+    // Hacer la solicitud GET con los parámetros configurados
+    return this.http.get<any>(
+      this.url + '/traerTodosLosProductosQueNoPertenezanAlUsuario',
+      {
+        params: params,
+      }
+    );
+  }
+
   public traerProductoPorId(id: any): Observable<any> {
     // Configurar los parámetros para la solicitud GET
     const params = new HttpParams().set('id', id);
@@ -127,4 +141,16 @@ export class ProductoServiceService {
     // Hacer la solicitud POST con los parámetros configurados
     return this.http.post<any>(this.url + '/recomendarProductos', res);
   }
+
+  public buscarProducto(tags: any, nombre: any) {
+    const res = {
+      nombreProducto: nombre,
+      etiquetas: tags,
+      idUsuario: this.cookiesService.get('id'),
+    };
+    // Hacer la solicitud POST con los parámetros configurados
+    return this.http.post<any>(this.url + '/buscarProducto', res);
+  }
+
+  
 }

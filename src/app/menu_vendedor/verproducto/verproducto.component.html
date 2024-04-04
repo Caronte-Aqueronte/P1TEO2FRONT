@@ -26,8 +26,8 @@
           </div>
         </div>
       </div>
-
-      <button class="buy-button" *ngIf="usuarioRegistrado">Comprar</button>
+      <button class="buy-button" (click)="traerMonedasDelUsuario()" *ngIf="usuarioRegistrado" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+        data-bs-whatever="@mdo">Comprar</button>
       <button class="report" *ngIf="usuarioRegistrado" data-bs-toggle="modal" data-bs-target="#exampleModal"
         data-bs-whatever="@mdo">Reportar publicacion</button>
       <button class="login" *ngIf="!usuarioRegistrado">Inicia sesion</button>
@@ -51,7 +51,7 @@
 
 
 
-
+<!--Modal de reporte-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -66,7 +66,8 @@
             <form action="
             ">
               <label for="message-text" class="col-form-label">Motivo del reporte:</label>
-              <textarea class="form-control" id="message-text" [(ngModel)]="mensajeReporte"  name="mensajeReporte"></textarea>
+              <textarea class="form-control" id="message-text" [(ngModel)]="mensajeReporte"
+                name="mensajeReporte"></textarea>
             </form>
 
           </div>
@@ -75,6 +76,26 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-primary" (click)="mandarReporte()">Enviar reporte</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal de venta-->
+<div class="modal fade" tabindex="-1" id="exampleModal2" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">¿Estas seguro de tu compra?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Tu Saldo ☘️ {{monedasDelUsuario}}</p>
+        <p>Precio del articulo ☘️ {{producto.precio}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger " id="btnCerrar" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" (click)="comprar()">Comprar</button>
       </div>
     </div>
   </div>

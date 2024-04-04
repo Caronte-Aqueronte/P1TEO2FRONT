@@ -1,8 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { MonedaService } from 'src/app/servicios/moneda.service';
 import { ProductoServiceService } from 'src/app/servicios/producto-service.service';
 import { ReporteService } from 'src/app/servicios/reporte.service';
+import { VentaService } from 'src/app/servicios/venta.service';
 import { API_PATH } from 'src/globasl';
 
 @Component({
@@ -17,17 +25,29 @@ export class VerproductoComponent implements OnInit {
   tags: Array<any> = new Array();
   usuarioRegistrado: any;
   mensajeReporte = '';
+  monedasDelUsuario: any;
+
   constructor(
     private router: Router,
     private rutaActiva: ActivatedRoute,
     private productoService: ProductoServiceService,
     private cookiesService: CookieService,
-    private reporteService: ReporteService
+    private reporteService: ReporteService,
+    private monedaService: MonedaService,
+    private ventaService: VentaService,
+    private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
     this.initProducto();
     this.verificarSiEstaRegistrado();
+  }
+  
+  cerrarModal() {
+    const btnCerrarElement = document.getElementById('btnCerrar');
+    if (btnCerrarElement) {
+      btnCerrarElement.click();
+    }
   }
 
   private verificarSiEstaRegistrado(): void {
@@ -37,6 +57,13 @@ export class VerproductoComponent implements OnInit {
     } else {
       this.usuarioRegistrado = false;
     }
+  }
+
+  public traerMonedasDelUsuario(): void {
+    //usuar el servicio para enviar un nuevo articulo
+    this.monedaService.traerMonedasUsuario().subscribe((respuesta: any) => {
+      this.monedasDelUsuario = respuesta.cantidad_monedas;
+    });
   }
 
   private initProducto(): void {
@@ -59,12 +86,27 @@ export class VerproductoComponent implements OnInit {
   }
 
   public mandarReporte() {
-    console.log(this.mensajeReporte)
     this.reporteService
       .crearReporte(this.producto.id, this.mensajeReporte)
       .subscribe((res) => {
         alert(res.mensaje);
         this.mensajeReporte = '';
       });
+  }
+
+  public comprar() {
+    let venta = {
+      idProducto: this.producto.id,
+      precioVendido: this.producto.precio,
+      id: this.cookiesService.get('id'),
+    };
+    this.ventaService.venta(venta).subscribe((res) => {
+      alert(res.mensaje);
+      if (res.bandera === true) {
+        this.cerrarModal();
+        //nos movemos hacia ver
+        this.router.navigate([`/menu_usuarios/muro_productos`]);
+      }
+    });
   }
 }

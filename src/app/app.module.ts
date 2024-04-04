@@ -35,6 +35,8 @@ import { AdministrarPostComponent } from './menu_admin/administrar-post/administ
 import { ProductoCardAprovacionComponent } from './menu_admin/producto-card-aprovacion/producto-card-aprovacion.component';
 import { ProductoCardReportadaComponent } from './menu_admin/producto-card-reportada/producto-card-reportada.component';
 import { VerProductoAdminComponent } from './menu_admin/ver-producto-admin/ver-producto-admin.component';
+import { MuroVentasComponent } from './menu_vendedor/muro-ventas/muro-ventas.component';
+import { MuroComprasComponent } from './menu_vendedor/muro-compras/muro-compras.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import { VerProductoAdminComponent } from './menu_admin/ver-producto-admin/ver-p
     ProductoCardAprovacionComponent,
     ProductoCardReportadaComponent,
     VerProductoAdminComponent,
+    MuroVentasComponent,
+    MuroComprasComponent,
   ],
   imports: [
     BrowserModule,
