@@ -43,7 +43,7 @@
       <div class="contactos" *ngIf="producto.mostrar_contacto">
         contactos
       </div>
-      <button class="chat-button" *ngIf="usuarioRegistrado">Chatear con el vendedor</button>
+      <button class="chat-button" *ngIf="usuarioRegistrado" (click)="chatear()" >Chatear con el vendedor</button>
     </div>
   </div>
 </div>

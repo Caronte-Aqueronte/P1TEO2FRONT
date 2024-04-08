@@ -1,0 +1,24 @@
+<!-- chat.component.html -->
+<div class="container">
+    <div class="chat-container">
+
+        <div class="barra-usuario">
+            <img src="../../../assets/user.png">
+            <p>Usuario {{destinatario}}</p>
+        </div>
+        <div class="chat-messages" #chatMessages>
+            <div class="message" *ngFor="let message of messages"
+                [ngClass]="{'user-message': message.isUserMessage, 'other-message': !message.isUserMessage}">
+                <span class="text">{{ message.text }}</span>
+                <br>
+                <br>
+                <span class="fecha">{{ message.fecha }}</span>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" [(ngModel)]="newMessage" placeholder="Escribe tu mensaje..."
+                (keyup.enter)="crearMensaje()">
+            <button (click)="crearMensaje()">Enviar</button>
+        </div>
+    </div>
+</div>

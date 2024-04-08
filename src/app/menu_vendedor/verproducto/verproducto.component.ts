@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { ChatService } from 'src/app/servicios/chat.service';
 import { MonedaService } from 'src/app/servicios/moneda.service';
 import { ProductoServiceService } from 'src/app/servicios/producto-service.service';
 import { ReporteService } from 'src/app/servicios/reporte.service';
@@ -35,14 +36,14 @@ export class VerproductoComponent implements OnInit {
     private reporteService: ReporteService,
     private monedaService: MonedaService,
     private ventaService: VentaService,
-    private renderer: Renderer2
+    private chatService: ChatService
   ) {}
 
   ngOnInit(): void {
     this.initProducto();
     this.verificarSiEstaRegistrado();
   }
-  
+
   cerrarModal() {
     const btnCerrarElement = document.getElementById('btnCerrar');
     if (btnCerrarElement) {
@@ -106,6 +107,21 @@ export class VerproductoComponent implements OnInit {
         this.cerrarModal();
         //nos movemos hacia ver
         this.router.navigate([`/menu_usuarios/muro_productos`]);
+      }
+    });
+  }
+
+  public chatear() {
+    let chat = {
+      Usuario1: this.cookiesService.get('id'),
+      Usuario2: this.producto.usuario.id,
+    };
+
+    this.chatService.crearChat(chat).subscribe((res) => {
+      if (res.bandera === true) {
+        this.router.navigate([`/menu_usuarios/chat/${res.chat.id}`]);
+      } else {
+        alert(res.mensaje);
       }
     });
   }

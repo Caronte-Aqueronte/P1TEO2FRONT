@@ -15,6 +15,8 @@ import { AdministrarUsuariosComponent } from './menu_admin/administrar-usuarios/
 import { AdministrarPostComponent } from './menu_admin/administrar-post/administrar-post.component';
 import { VerProductoAdminComponent } from './menu_admin/ver-producto-admin/ver-producto-admin.component';
 import { MuroVentasComponent } from './menu_vendedor/muro-ventas/muro-ventas.component';
+import { ChatsComponent } from './menu_vendedor/chats/chats.component';
+import { ChatPageComponent } from './menu_vendedor/chat-page/chat-page.component';
 
 const routes: Routes = [
   {
@@ -68,6 +70,14 @@ const routes: Routes = [
       {
         path: 'muro_productos',
         component: MuroVentasComponent,
+      },
+      {
+        path: 'chats',
+        component: ChatsComponent,
+      },
+      {
+        path: 'chat/:id',
+        component: ChatPageComponent,
       },
     ],
   },

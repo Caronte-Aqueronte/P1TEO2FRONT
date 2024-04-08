@@ -37,6 +37,9 @@ import { ProductoCardReportadaComponent } from './menu_admin/producto-card-repor
 import { VerProductoAdminComponent } from './menu_admin/ver-producto-admin/ver-producto-admin.component';
 import { MuroVentasComponent } from './menu_vendedor/muro-ventas/muro-ventas.component';
 import { MuroComprasComponent } from './menu_vendedor/muro-compras/muro-compras.component';
+import { ChatsComponent } from './menu_vendedor/chats/chats.component';
+import { ChatCardComponent } from './menu_vendedor/chat-card/chat-card.component';
+import { ChatPageComponent } from './menu_vendedor/chat-page/chat-page.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +74,9 @@ import { MuroComprasComponent } from './menu_vendedor/muro-compras/muro-compras.
     VerProductoAdminComponent,
     MuroVentasComponent,
     MuroComprasComponent,
+    ChatsComponent,
+    ChatCardComponent,
+    ChatPageComponent,
   ],
   imports: [
     BrowserModule,

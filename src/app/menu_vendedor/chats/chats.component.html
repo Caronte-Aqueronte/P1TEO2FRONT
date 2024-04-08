@@ -1,0 +1,11 @@
+<div class="container">
+    <h3>
+        Tus chats
+    </h3>
+
+    <div class="cards-contianer">
+        <app-chat-card *ngFor="let chat of chats" [chatInfo]= "chat" (event)="listarChatsDeUnUsuario()">
+        </app-chat-card  >
+    </div>
+
+</div>

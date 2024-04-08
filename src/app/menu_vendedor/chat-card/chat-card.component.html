@@ -1,0 +1,14 @@
+<div class="chat-card">
+    <div class="chat-header">
+        <img src="../../../assets/user.png">
+        <h3 class="chat-title">{{ chatInfo.otroUsuarioNombre }}</h3>
+    </div>
+    <div class="alt-color">
+        <div class="chat-body alt-color">
+            <p class="chat-last-active">Creación: {{ chatInfo.chat.createdAt }}</p>
+        </div>
+        <div class="chat-footer">
+            <button class="btn-go-to-chat" (click)="ir()">Ir al Chat</button>
+            <button class="btn-delete-chat" (click)="eliminarChat()">Eliminar Chat</button>
+        </div>
+    </div>

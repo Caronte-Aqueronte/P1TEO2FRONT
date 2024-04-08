@@ -1,0 +1,116 @@
+/* chat.component.css */
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Estilo para la barra de usuario */
+.barra-usuario {
+    display: flex;
+    gap: 10px;
+    align-items: center; /* Centra verticalmente los elementos hijos */
+    justify-content: center; /* Centra horizontalmente los elementos hijos */
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color de texto */
+    padding: 10px; /* Espaciado interno */
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2); /* Sombra en la parte superior */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Borde inferior */
+}
+
+.barra-usuario p {
+    top: 50%; /* Posicionarlo en la mitad vertical */
+    margin: 0; /* Asegurar que no haya margen adicional */
+}
+
+
+.chat-container {
+    width: 80%;
+   
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Borde suave */
+}
+.chat-messages {
+    padding: 10px;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+/* Estilo para el mensaje */
+.message {
+    position: relative; /* Hacer que la posición sea relativa para que los elementos internos puedan posicionarse relativos a él */
+    margin-bottom: 10px;
+    max-width: 45%;
+    min-height: 50px;
+    word-wrap: break-word;
+}
+
+/* Estilo para el span de la fecha */
+.fecha {
+    position: absolute; /* Hacer que la posición sea absoluta para posicionarla en la esquina inferior derecha */
+    bottom: 0; /* Colocarla en la parte inferior */
+    right: 10px; /* Colocarla en la parte derecha */
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    color: #888; /* Color de texto gris */
+}
+
+/* Estilo para el mensaje del usuario */
+.message.user-message {
+    background-color: #DCF8C6;
+    border-radius: 20px 20px 20px 5px;
+    padding: 10px 15px;
+    color: #000;
+    margin-left: auto;
+}
+
+/* Estilo para el mensaje del otro usuario */
+.message.other-message {
+    background-color: #E5E5EA;
+    border-radius: 20px 20px 5px 20px;
+    padding: 10px 15px;
+    color: #000;
+    margin-right: auto;
+}
+
+.message .user {
+    font-weight: bold;
+}
+
+.message .text {
+    margin-right: 10px; /* Agregar un margen derecho de 10px */
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.chat-input input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    margin-right: 10px;
+    transition: border-color 0.3s; /* Transición suave para el cambio de color de borde */
+}
+
+/* Estilo para el input de texto al recibir el foco */
+.chat-input input[type="text"]:focus {
+    border-color: #00ff00; /* Cambia el color del borde a verde al recibir el foco */
+    outline: none; /* Elimina el contorno predeterminado al recibir el foco */
+}
+.chat-input button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #45a049;
+}
