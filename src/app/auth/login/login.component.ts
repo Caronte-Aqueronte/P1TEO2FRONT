@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { LogoutService } from 'src/app/servicios/logout.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private router: Router,
     private usuarioServise: UsuarioService,
-    private cookiesService: CookieService
+    private cookiesService: CookieService,
+    private logoutService: LogoutService
   ) {
     this.formLogin = this.formBuilder.group({
       email: [
@@ -71,11 +73,11 @@ export class LoginComponent {
         this.cookiesService.set('id', respuesta.usuarioEncontrado.id);
         switch (respuesta.usuarioEncontrado.rol) {
           case 'admin': {
-            this.router.navigate(['/menu_admin']);
+            this.router.navigate(['/menu_admin/administrar_usuarios']);
             break;
           }
           case 'usuario': {
-            this.router.navigate(['/menu_usuarios']);
+            this.router.navigate(['/menu_usuarios/muro_productos']);
             break;
           }
           default: {
@@ -87,5 +89,9 @@ export class LoginComponent {
         this.mensajeError = respuesta.mensaje;
       }
     });
+  }
+
+  public logOut() {
+    this.logoutService.logOut(false);
   }
 }

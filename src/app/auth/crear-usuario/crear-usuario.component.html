@@ -67,7 +67,7 @@
 
 
         <a [routerLink]="['/login']">¿Ya tienes una cuenta?</a>
-        <a [routerLink]="['/crear-usuario']">Entra como invitado</a>
+        <a [routerLink]="['/invitado//muro_productos']"  (click)="logOut()">Entra como invitado</a>
 
 
         <ng-container *ngIf="banderaError">

@@ -17,6 +17,9 @@ import { VerProductoAdminComponent } from './menu_admin/ver-producto-admin/ver-p
 import { MuroVentasComponent } from './menu_vendedor/muro-ventas/muro-ventas.component';
 import { ChatsComponent } from './menu_vendedor/chats/chats.component';
 import { ChatPageComponent } from './menu_vendedor/chat-page/chat-page.component';
+import { VerCompraComponent } from './menu_vendedor/ver-compra/ver-compra.component';
+import { MuroComprasComponent } from './menu_vendedor/muro-compras/muro-compras.component';
+import { InvitadoPageComponent } from './menu_invitado/invitado-page/invitado-page.component';
 
 const routes: Routes = [
   {
@@ -68,6 +71,14 @@ const routes: Routes = [
         component: VerproductoComponent,
       },
       {
+        path: 'ver_compra/:id',
+        component: VerCompraComponent,
+      },
+      {
+        path: 'compras',
+        component: MuroComprasComponent,
+      },
+      {
         path: 'muro_productos',
         component: MuroVentasComponent,
       },
@@ -79,6 +90,28 @@ const routes: Routes = [
         path: 'chat/:id',
         component: ChatPageComponent,
       },
+    ],
+  },
+  {
+    path: 'invitado',
+    component: InvitadoPageComponent,
+    children: [
+      {
+        path: 'ver_producto/:idProd',
+        component: VerproductoComponent,
+      },
+      {
+        path: 'ver_compra/:id',
+        component: VerCompraComponent,
+      },
+      {
+        path: 'compras',
+        component: MuroComprasComponent,
+      },
+      {
+        path: 'muro_productos',
+        component: MuroVentasComponent,
+      }
     ],
   },
   {

@@ -30,7 +30,7 @@
         data-bs-whatever="@mdo">Comprar</button>
       <button class="report" *ngIf="usuarioRegistrado" data-bs-toggle="modal" data-bs-target="#exampleModal"
         data-bs-whatever="@mdo">Reportar publicacion</button>
-      <button class="login" *ngIf="!usuarioRegistrado">Inicia sesion</button>
+        <button class="login" *ngIf="!usuarioRegistrado" (click)="iniciarSecion()">Inicia sesion</button>
     </div>
   </div>
   <div class="info">

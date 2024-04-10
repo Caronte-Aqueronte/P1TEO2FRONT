@@ -46,6 +46,7 @@
         </button>
 
         <a [routerLink]="['/crear_usuario']">¿No tienes una cuenta?</a>
+        <a [routerLink]="['/invitado/muro_productos']" (click)="logOut()">Entra como invitado</a>
 
         <ng-container *ngIf="banderaError">
             <div class="pop error">

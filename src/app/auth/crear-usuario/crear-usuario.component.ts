@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { LogoutService } from 'src/app/servicios/logout.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
@@ -16,9 +17,8 @@ export class CrearUsuarioComponent {
   mensajeError: any = '';
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
     private usuarioServise: UsuarioService,
-    private cookiesService: CookieService
+    private logoutService: LogoutService
   ) {
     this.formLogin = this.formBuilder.group({
       email: [
@@ -77,5 +77,9 @@ export class CrearUsuarioComponent {
           this.mensajeError = respuesta.mensaje;
         }
       });
+  }
+
+  public logOut() {
+    this.logoutService.logOut(false);
   }
 }

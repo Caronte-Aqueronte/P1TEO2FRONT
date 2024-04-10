@@ -40,6 +40,10 @@ import { MuroComprasComponent } from './menu_vendedor/muro-compras/muro-compras.
 import { ChatsComponent } from './menu_vendedor/chats/chats.component';
 import { ChatCardComponent } from './menu_vendedor/chat-card/chat-card.component';
 import { ChatPageComponent } from './menu_vendedor/chat-page/chat-page.component';
+import { VerCompraComponent } from './menu_vendedor//ver-compra/ver-compra.component';
+import { CompraCardComponent } from './menu_vendedor/compra-card/compra-card.component';
+import { InvitadoPageComponent } from './menu_invitado/invitado-page/invitado-page.component';
+import { NavBarInvitadoComponent } from './menu_invitado/nav-bar-invitado/nav-bar-invitado.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +81,10 @@ import { ChatPageComponent } from './menu_vendedor/chat-page/chat-page.component
     ChatsComponent,
     ChatCardComponent,
     ChatPageComponent,
+    VerCompraComponent,
+    CompraCardComponent,
+    InvitadoPageComponent,
+    NavBarInvitadoComponent,
   ],
   imports: [
     BrowserModule,

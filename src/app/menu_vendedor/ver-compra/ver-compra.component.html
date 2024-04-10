@@ -1,0 +1,41 @@
+<div class="contenedor">
+    <div class="imagen">
+        <img [src]="pathimg" alt="">
+    </div>
+
+    <div class="info">
+
+        <div class="info-container">
+            <p class="title">
+                {{producto.nombre}}
+            </p>
+
+            <p class="des">
+                Descripcion {{producto.descripcion}}
+            </p>
+
+            <div>
+                Tags
+                <div class="tags-container">
+                    <div class="tag" *ngFor="let tag of tags">
+                        {{tag}}
+                    </div>
+                </div>
+            </div>
+            <button class="login" *ngIf="!usuarioRegistrado" (click)="iniciarSecion()">Inicia sesion</button>
+        </div>
+    </div>
+    <div class="info">
+        <div class="info-container">
+
+
+            <p class="title">
+                Comprador {{usuarioVendedor.nombre}}
+            </p>
+            <div class="contactos" *ngIf="producto.mostrar_contacto">
+                contactos
+            </div>
+            <button class="chat-button" *ngIf="usuarioRegistrado" (click)="chatear()">Chatear con el vendedor</button>
+        </div>
+    </div>
+</div>

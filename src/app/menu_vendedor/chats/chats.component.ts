@@ -22,7 +22,6 @@ export class ChatsComponent implements OnInit {
     let id = this.cookiesService.get('id');
 
     this.chatsService.listarChatsDeUnUsuario(id).subscribe((res) => {
-      console.log(res);
       this.chats = res.chats;
     });
   }

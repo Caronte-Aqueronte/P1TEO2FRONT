@@ -1,1 +1,34 @@
-<p>muro-compras works!</p>
+<div class="container">
+    <h3>
+        Muro de compras
+    </h3>
+
+    <div class="inputbox">
+        <input type="text" required="true" (input)="buscarProducto()" [(ngModel)]="productoBuscado">
+        <span>Buscar por nombre</span>
+        <i></i>
+    </div>
+
+    <div class="tags-container">
+        <div>
+            <h3>Busca por tags</h3>
+            <div class="selector-tag">
+                <app-tag-add *ngFor="let tag of tags; let i = index" [tag]="tag"
+                    (event)="anadirTag(i)"></app-tag-add>
+            </div>
+        </div>
+        <div>
+            <h3>Tags Seleccionados</h3>
+            <div class="selector-tag">
+                <app-tag-del *ngFor="let tag of tagsSeleccionados; let i = index" [tag]="tag"
+                    (event)="eliminarTag(i)"></app-tag-del>
+            </div>
+        </div>
+    </div>
+
+    <div class="cards-contianer">
+        <app-compra-card *ngFor="let producto of productos" [compra]= "producto">
+        </app-compra-card >
+    </div>
+
+</div>

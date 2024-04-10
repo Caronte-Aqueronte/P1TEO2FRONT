@@ -116,7 +116,10 @@ export class VerproductoComponent implements OnInit {
       Usuario1: this.cookiesService.get('id'),
       Usuario2: this.producto.usuario.id,
     };
-
+    if(!this.usuarioRegistrado){
+      this.router.navigate([`/login`]);
+      return;
+    }
     this.chatService.crearChat(chat).subscribe((res) => {
       if (res.bandera === true) {
         this.router.navigate([`/menu_usuarios/chat/${res.chat.id}`]);
@@ -124,5 +127,10 @@ export class VerproductoComponent implements OnInit {
         alert(res.mensaje);
       }
     });
+  }
+
+  
+  iniciarSecion(): void {
+    this.router.navigate([`/login`]);
   }
 }
