@@ -44,6 +44,7 @@ import { VerCompraComponent } from './menu_vendedor//ver-compra/ver-compra.compo
 import { CompraCardComponent } from './menu_vendedor/compra-card/compra-card.component';
 import { InvitadoPageComponent } from './menu_invitado/invitado-page/invitado-page.component';
 import { NavBarInvitadoComponent } from './menu_invitado/nav-bar-invitado/nav-bar-invitado.component';
+import { EditarCompraComponent } from './menu_vendedor/editar-compra/editar-compra.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { NavBarInvitadoComponent } from './menu_invitado/nav-bar-invitado/nav-ba
     CompraCardComponent,
     InvitadoPageComponent,
     NavBarInvitadoComponent,
+    EditarCompraComponent,
   ],
   imports: [
     BrowserModule,

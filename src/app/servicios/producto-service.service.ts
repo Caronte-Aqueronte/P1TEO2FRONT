@@ -32,6 +32,29 @@ export class ProductoServiceService {
     return this.http.post<any>(this.url + '/crearProducto', form); //hacer un post a la aplicacion enviando la info del cliente
   }
 
+  public editarImagenDeArticulo(id: string, imagen: File): Observable<any> {
+    const form = new FormData(); //creamos el form
+    form.append('id', id);
+    form.append('file', imagen, 'form-data'); //adjuntar la imagen
+    return this.http.post<any>(this.url + '/actualizarImagenProducto', form);
+  }
+
+  public editarInformacionDeArticulo( articulo: any,
+    id:any, tags:any
+  ): Observable<any> {
+    const form = new FormData(); //creamos el form
+    form.append('id', id);
+    form.append('nombre', articulo.nombre);
+    form.append('descripcion', articulo.descripcion);
+    form.append('precio', articulo.precio);
+    form.append('mostrar_contacto', articulo.switch);
+    form.append('tags', JSON.stringify(tags));
+
+    console.log("ar", articulo)
+    return this.http.post<any>(this.url + '/editarProducto', form);
+  }
+
+
   public eliminarProducto(id: any): Observable<any> {
     // Hacer una solicitud DELETE para eliminar el tag por su ID
     return this.http.delete<any>(`${this.url}/eliminarProducto/${id}`);
@@ -151,6 +174,4 @@ export class ProductoServiceService {
     // Hacer la solicitud POST con los parámetros configurados
     return this.http.post<any>(this.url + '/buscarProducto', res);
   }
-
-  
 }

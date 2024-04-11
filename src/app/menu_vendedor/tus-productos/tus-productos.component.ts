@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductoServiceService } from 'src/app/servicios/producto-service.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class TusProductosComponent implements OnInit {
   productosPendientes: Array<any> = [];
   productosRechazados: Array<any> = [];
   productosVendidos: Array<any> = [];
-  constructor(private productoService: ProductoServiceService) {}
+  constructor(
+    private productoService: ProductoServiceService,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.mostrarProductos();
   }
@@ -56,5 +60,9 @@ export class TusProductosComponent implements OnInit {
       alert(res.mensaje);
       this.mostrarProductos();
     });
+  }
+
+  public actualizarProducto(id: any): void {
+    this.router.navigate([`/menu_usuarios/editar_producto/${id}`]);
   }
 }

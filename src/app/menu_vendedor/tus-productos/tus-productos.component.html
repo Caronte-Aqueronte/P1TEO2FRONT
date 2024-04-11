@@ -12,7 +12,8 @@
     </h3>
     <div class="cards-contianer">
         <app-producto-card-vendedor *ngFor="let prod of productosAprobados"
-            [producto]="prod" (eventEliminar)="eliminarProducto($event)"></app-producto-card-vendedor>
+            [producto]="prod" (eventEliminar)="eliminarProducto($event)"
+            (eventActualizar)="actualizarProducto($event)"></app-producto-card-vendedor>
     </div>
 
     <h3>
@@ -20,7 +21,8 @@
     </h3>
     <div class="cards-contianer">
         <app-producto-card-vendedor *ngFor="let prod of productosPendientes"
-            [producto]="prod" (eventEliminar)="eliminarProducto($event)"></app-producto-card-vendedor>
+            [producto]="prod" (eventEliminar)="eliminarProducto($event)"
+            (eventActualizar)="actualizarProducto($event)"></app-producto-card-vendedor>
     </div>
 
     <h3>
@@ -28,6 +30,7 @@
     </h3>
     <div class="cards-contianer">
         <app-producto-card-vendedor *ngFor="let prod of productosRechazados"
-            [producto]="prod" (eventEliminar)="eliminarProducto($event)"></app-producto-card-vendedor>
+            [producto]="prod" (eventEliminar)="eliminarProducto($event)" 
+            (eventActualizar)="actualizarProducto($event)"></app-producto-card-vendedor>
     </div>
 </div>

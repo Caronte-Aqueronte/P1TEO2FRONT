@@ -20,6 +20,7 @@ import { ChatPageComponent } from './menu_vendedor/chat-page/chat-page.component
 import { VerCompraComponent } from './menu_vendedor/ver-compra/ver-compra.component';
 import { MuroComprasComponent } from './menu_vendedor/muro-compras/muro-compras.component';
 import { InvitadoPageComponent } from './menu_invitado/invitado-page/invitado-page.component';
+import { EditarCompraComponent } from './menu_vendedor/editar-compra/editar-compra.component';
 
 const routes: Routes = [
   {
@@ -74,6 +75,12 @@ const routes: Routes = [
         path: 'ver_compra/:id',
         component: VerCompraComponent,
       },
+
+      {
+        path: 'editar_producto/:id',
+        component: EditarCompraComponent,
+      },
+
       {
         path: 'compras',
         component: MuroComprasComponent,
