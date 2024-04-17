@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { API_PATH } from 'src/globasl';
 
 @Component({
@@ -12,16 +13,19 @@ export class CardProductoCompraComponent implements OnInit {
   @Output() eventVer = new EventEmitter<any>();
   pathimg: any = API_PATH;
 
-  constructor(private router:Router){
-
-  }
+  constructor(private router: Router, private cookiesService: CookieService) {}
 
   ngOnInit(): void {
     this.pathimg += '/' + this.producto.imagen;
   }
 
   public ver(): void {
-    //nos movemos hacia ver
-    this.router.navigate([`/menu_usuarios/ver_producto/${this.producto.id}`]);
+    if (this.cookiesService.get('id')) {
+      //nos movemos hacia ver
+      this.router.navigate([`/menu_usuarios/ver_producto/${this.producto.id}`]);
+    } else {
+      //nos movemos hacia ver
+      this.router.navigate([`/invitado/ver_producto/${this.producto.id}`]);
+    }
   }
 }

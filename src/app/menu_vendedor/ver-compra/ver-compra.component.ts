@@ -18,6 +18,8 @@ export class VerCompraComponent implements OnInit {
   usuarioRegistrado: any;
   mensajeReporte = '';
   monedasDelUsuario: any;
+  mostrarContactos = false;
+  contactos: Array<any> = new Array();
 
   constructor(
     private router: Router,
@@ -56,6 +58,8 @@ export class VerCompraComponent implements OnInit {
         this.producto = res.compra;
         this.usuarioVendedor = res.compra.usuario;
         this.tags = res.compra.tags;
+        this.contactos = res.compra.usuario.contactos;
+        this.mostrarContactos = res.compra.mostrar_contacto;
       } else {
         alert(res.mensaje);
       }

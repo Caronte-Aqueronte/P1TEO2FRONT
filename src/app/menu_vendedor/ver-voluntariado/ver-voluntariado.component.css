@@ -1,0 +1,89 @@
+.imagen img {
+    max-width: 500px;
+    min-width: 300px;
+}
+
+.tags-container {
+    width: 100%;
+    display: flex;
+    gap: 2px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    padding: 10px 20px;
+    background-color: rgb(225, 225, 225);
+    border-radius: 10px;
+}
+
+
+.info {
+    width: 50%;
+}
+
+
+.title {
+    font-weight: bold;
+    font-size: xx-large;
+    border-width: 0px 0px 1px 0px;
+    border-color: black;
+    border-style: solid;
+}
+
+.info-container {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f6f6f6;
+}
+
+.contenedor {
+    min-height: 80vh;
+    min-width: 100%;
+    display: flex;
+    gap: 20px;
+
+    justify-content: center;
+}
+
+
+
+.buy-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.report {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+.chat-button {
+    background-color: yellow;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

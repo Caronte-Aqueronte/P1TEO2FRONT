@@ -26,11 +26,11 @@
           </div>
         </div>
       </div>
-      <button class="buy-button" (click)="traerMonedasDelUsuario()" *ngIf="usuarioRegistrado" data-bs-toggle="modal" data-bs-target="#exampleModal2"
-        data-bs-whatever="@mdo">Comprar</button>
+      <button class="buy-button" (click)="traerMonedasDelUsuario()" *ngIf="usuarioRegistrado" data-bs-toggle="modal"
+        data-bs-target="#exampleModal2" data-bs-whatever="@mdo">Comprar</button>
       <button class="report" *ngIf="usuarioRegistrado" data-bs-toggle="modal" data-bs-target="#exampleModal"
         data-bs-whatever="@mdo">Reportar publicacion</button>
-        <button class="login" *ngIf="!usuarioRegistrado" (click)="iniciarSecion()">Inicia sesion</button>
+      <button class="login" *ngIf="!usuarioRegistrado" (click)="iniciarSecion()">Inicia sesion</button>
     </div>
   </div>
   <div class="info">
@@ -40,10 +40,17 @@
       <p class="title">
         Vendedor {{usuarioVendedor.nombre}}
       </p>
-      <div class="contactos" *ngIf="producto.mostrar_contacto">
+      <div class="contactos" *ngIf="mostrarContactos">
         contactos
+        <div class="tags-container">
+          <div class="tag" *ngFor="let contacto of contactos">
+            {{contacto.nombre}}
+            <br>
+            {{contacto.contenido}}
+          </div>
+        </div>
       </div>
-      <button class="chat-button" *ngIf="usuarioRegistrado" (click)="chatear()" >Chatear con el vendedor</button>
+      <button class="chat-button" *ngIf="usuarioRegistrado" (click)="chatear()">Chatear con el vendedor</button>
     </div>
   </div>
 </div>

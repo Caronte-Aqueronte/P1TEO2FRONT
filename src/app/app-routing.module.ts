@@ -21,6 +21,10 @@ import { VerCompraComponent } from './menu_vendedor/ver-compra/ver-compra.compon
 import { MuroComprasComponent } from './menu_vendedor/muro-compras/muro-compras.component';
 import { InvitadoPageComponent } from './menu_invitado/invitado-page/invitado-page.component';
 import { EditarCompraComponent } from './menu_vendedor/editar-compra/editar-compra.component';
+import { ContactosPageComponent } from './menu_vendedor/contactos-page/contactos-page.component';
+import { CrearVoluntariadoComponent } from './menu_vendedor/crear-voluntariado/crear-voluntariado.component';
+import { VoluntariadosPageComponent } from './menu_vendedor/voluntariados-page/voluntariados-page.component';
+import { VerVoluntariadoComponent } from './menu_vendedor/ver-voluntariado/ver-voluntariado.component';
 
 const routes: Routes = [
   {
@@ -96,6 +100,22 @@ const routes: Routes = [
       {
         path: 'chat/:id',
         component: ChatPageComponent,
+      },
+      {
+        path: 'contactos',
+        component: ContactosPageComponent,
+      },
+      {
+        path: 'crear_voluntariado',
+        component: CrearVoluntariadoComponent,
+      },
+      {
+        path: 'voluntariados',
+        component: VoluntariadosPageComponent,
+      },
+      {
+        path: 'ver_voluntariado/:id',
+        component: VerVoluntariadoComponent,
       },
     ],
   },

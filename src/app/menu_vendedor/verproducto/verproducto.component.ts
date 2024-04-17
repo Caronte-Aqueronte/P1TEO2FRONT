@@ -24,9 +24,11 @@ export class VerproductoComponent implements OnInit {
   pathimg: any = API_PATH;
   usuarioVendedor: any;
   tags: Array<any> = new Array();
+  contactos: Array<any> = new Array();
   usuarioRegistrado: any;
   mensajeReporte = '';
   monedasDelUsuario: any;
+  mostrarContactos = false;
 
   constructor(
     private router: Router,
@@ -80,6 +82,8 @@ export class VerproductoComponent implements OnInit {
         this.producto = res.producto;
         this.usuarioVendedor = res.producto.usuario;
         this.tags = res.producto.tags;
+        this.contactos = res.producto.usuario.contactos;
+        this.mostrarContactos = res.producto.mostrar_contacto;
       } else {
         alert(res.mensaje);
       }
@@ -116,7 +120,7 @@ export class VerproductoComponent implements OnInit {
       Usuario1: this.cookiesService.get('id'),
       Usuario2: this.producto.usuario.id,
     };
-    if(!this.usuarioRegistrado){
+    if (!this.usuarioRegistrado) {
       this.router.navigate([`/login`]);
       return;
     }
@@ -129,7 +133,6 @@ export class VerproductoComponent implements OnInit {
     });
   }
 
-  
   iniciarSecion(): void {
     this.router.navigate([`/login`]);
   }

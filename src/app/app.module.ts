@@ -45,6 +45,12 @@ import { CompraCardComponent } from './menu_vendedor/compra-card/compra-card.com
 import { InvitadoPageComponent } from './menu_invitado/invitado-page/invitado-page.component';
 import { NavBarInvitadoComponent } from './menu_invitado/nav-bar-invitado/nav-bar-invitado.component';
 import { EditarCompraComponent } from './menu_vendedor/editar-compra/editar-compra.component';
+import { ContactosPageComponent } from './menu_vendedor/contactos-page/contactos-page.component';
+import { ContactoCardComponent } from './menu_vendedor/contacto-card/contacto-card.component';
+import { VoluntariadosPageComponent } from './menu_vendedor/voluntariados-page/voluntariados-page.component';
+import { VoluntariadoCardComponent } from './menu_vendedor/voluntariado-card/voluntariado-card.component';
+import { VerVoluntariadoComponent } from './menu_vendedor/ver-voluntariado/ver-voluntariado.component';
+import { CrearVoluntariadoComponent } from './menu_vendedor/crear-voluntariado/crear-voluntariado.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +93,12 @@ import { EditarCompraComponent } from './menu_vendedor/editar-compra/editar-comp
     InvitadoPageComponent,
     NavBarInvitadoComponent,
     EditarCompraComponent,
+    ContactosPageComponent,
+    ContactoCardComponent,
+    VoluntariadosPageComponent,
+    VoluntariadoCardComponent,
+    VerVoluntariadoComponent,
+    CrearVoluntariadoComponent,
   ],
   imports: [
     BrowserModule,

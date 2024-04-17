@@ -1,7 +1,4 @@
 <div class="contenedor">
-    <div class="imagen">
-        <img [src]="pathimg" alt="">
-    </div>
 
     <div class="info">
 
@@ -10,27 +7,20 @@
                 {{producto.nombre}}
             </p>
 
-            <p class="des">
-                Descripcion {{producto.descripcion}}
+            <p class="precio">
+                Premio: ☘️ {{producto.precio}}
             </p>
 
-            <div>
-                Tags
-                <div class="tags-container">
-                    <div class="tag" *ngFor="let tag of tags">
-                        {{tag}}
-                    </div>
-                </div>
-            </div>
-            <button class="login" *ngIf="!usuarioRegistrado" (click)="iniciarSecion()">Inicia sesion</button>
+            <p class="des">
+                Descripción: {{producto.descripcion}}
+            </p>
+            <button class="buy-button" (click)="participar()">Participar</button>
         </div>
     </div>
     <div class="info">
         <div class="info-container">
-
-
             <p class="title">
-                Comprador {{usuarioVendedor.nombre}}
+                Publicado por {{usuarioVendedor.nombre}}
             </p>
             <div class="contactos" *ngIf="mostrarContactos">
                 contactos
@@ -42,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <button class="chat-button" *ngIf="usuarioRegistrado" (click)="chatear()">Chatear con el vendedor</button>
+            <button class="chat-button" (click)="chatear()">Chatear con el vendedor</button>
         </div>
     </div>
 </div>
